@@ -44,14 +44,55 @@ class CategoryItemsPage extends StatelessWidget {
       },
     ],
     'Clothing': [
-      {
+     {
         'image': '/images/polo.jpg',
         'brand': 'Brand B',
-        'name': 'Shirt 1',
+        'name': 'Polo-neck',
         'price': 49.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      },
+      }, 
+      {
+        'image': '/images/cargopant.jpg',
+        'brand': 'Brand B',
+        'name': 'Cargopant',
+        'price': 49.0,
+        'oldPrice': 69.0,
+        'rating': 4.0
+      }, 
+      {
+        'image': '/images/green-tank.jpg',
+        'brand': 'Brand B',
+        'name': 'Tank-top',
+        'price': 49.0,
+        'oldPrice': 69.0,
+        'rating': 4.0
+      }, 
+      {
+        'image': '/images/top-shirt.jpg',
+        'brand': 'Brand B',
+        'name': 'Pajamas',
+        'price': 49.0,
+        'oldPrice': 69.0,
+        'rating': 4.0
+      }, 
+      {
+        'image': '/images/pink-hoodie.jpg',
+        'brand': 'Brand B',
+        'name': 'Ladies Hoodie',
+        'price': 49.0,
+        'oldPrice': 69.0,
+        'rating': 4.0
+      }, 
+      {
+        'image': '/images/oversized.jpg',
+        'brand': 'Brand B',
+        'name': 'Oversized hodie',
+        'price': 4.0,
+        'oldPrice': 69.0,
+        'rating': 4.0
+      }, 
+
     ],
   };
 
