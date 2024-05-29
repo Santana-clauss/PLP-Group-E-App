@@ -22,7 +22,7 @@ class DashboardPage extends StatelessWidget {
             // First Container
             Container(
               height: 200,
-              color: greenColor,
+              color: orangeColor,
               padding: EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,7 +183,7 @@ class DashboardPage extends StatelessWidget {
                   Container(
                     height: 150,
                     decoration: BoxDecoration(
-                      color: greenColor,
+                      color: orangeColor,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Padding(

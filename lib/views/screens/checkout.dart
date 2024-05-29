@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  final Map<String, dynamic> itemDetails; // Single item detail
+  final List<Map<String, dynamic>> cartItems; // List of cart items
 
-  CheckoutScreen({required this.itemDetails});
+  CheckoutScreen({required this.cartItems});
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = cartItems.fold(
+        0, (sum, item) => sum + (item['price'] * item['quantity']));
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Checkout'),
@@ -17,25 +20,117 @@ class CheckoutScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Item Details:', // Display item details
+              'Order Summary:',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: cartItems.length,
+                itemBuilder: (context, index) {
+                  final item = cartItems[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage(item['image']),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                item['name'],
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                '\$${item['price']}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                              Text(
+                                'Quantity: ${item['quantity']}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            Divider(),
+            Text(
+              'Total: \$${totalPrice.toStringAsFixed(2)}',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Add your location:',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 10),
-            Text(
-              'Name: ${itemDetails['name']}',
-              style: TextStyle(fontSize: 16),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Enter your location',
+                border: OutlineInputBorder(),
+              ),
             ),
-            Text(
-              'Price: \$${itemDetails['price']}',
-              style: TextStyle(fontSize: 16),
-            ),
-            // Add more item details if needed
             SizedBox(height: 20),
-            // Location input field
-            // Proceed to payment button
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  // Add functionality to proceed with payment
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('Order Placed'),
+                      content: Text(
+                          'Your order has been successfully placed! You can proceed to track your items.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            Navigator.of(context)
+                                .pop(); // Close both dialogs and return to the cart page
+                          },
+                          child: Text('OK'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                child: Text('Pay'),
+              ),
+            ),
           ],
         ),
       ),

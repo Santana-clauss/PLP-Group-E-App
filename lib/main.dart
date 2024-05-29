@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:shopeasy/utils/routes.dart';
 import 'package:shopeasy/views/cartprovider.dart';
 import 'package:shopeasy/views/screens/dashboard.dart';
 
@@ -15,10 +17,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ShopEasy',
-      home: DashboardPage(),
+      initialRoute: "/",
+      getPages: Routes.routes,
+      //home: DashboardPage(),
     );
   }
 }

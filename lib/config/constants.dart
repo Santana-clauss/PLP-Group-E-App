@@ -7,9 +7,9 @@ const Color whiteColor = Color(0xFFFFFFFF);
 const greytextColor = Color(0xFF404040);
 const greyColor=Color(0xFF808080);
 const appbartextColor = Color(0xFFFFFFFF);
-const Color orangeColor = Color(0xFFFF7F00);
+const Color orangeColor = Colors.green;
 const Color darkOrangeColor = Color(0xFFA0522D);
-const Color redColor = Color.fromARGB(255, 189, 50, 50);
+const Color redColor = Color.fromRGBO(245, 151, 148,0);
 
 // constants.dart
 

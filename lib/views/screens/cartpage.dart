@@ -56,12 +56,6 @@ class CartPage extends StatelessWidget {
                             SizedBox(height: 5),
                             Row(
                               children: [
-                                // IconButton(
-                                //   icon: Icon(Icons.remove),
-                                //   onPressed: () {
-                                //     cart.addItem(item);
-                                //   },
-                                // ),
                                 Text(
                                   '${item['quantity']}',
                                   style: TextStyle(fontSize: 16),
@@ -101,13 +95,13 @@ class CartPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to checkout screen with first item details
+                    // Navigate to checkout screen with cart items
                     if (cart.cartItems.isNotEmpty) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              CheckoutScreen(itemDetails: cart.cartItems.first)
+                              CheckoutScreen(cartItems: cart.cartItems),
                         ),
                       );
                     }

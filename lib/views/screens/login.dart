@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.jpg'),
+                image: AssetImage('/images/loginback.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -32,14 +32,14 @@ class _LoginScreenState extends State<LoginScreen> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: Colors.white
-                  .withOpacity(0.45), // Adjust opacity value as needed
+                  .withOpacity(0.15), // Adjust opacity value as needed
               child: Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    customText(label: "TWC",labelColor: whiteColor,fontSize: 32,),
-                    customText(label: "You choose what you\n see,fit the attire and\n buy",labelColor: whiteColor,),
+                    customText(label: "ShopEasy",labelColor: whiteColor,fontSize: 32,),
+                    customText(label: "Your Ultimate Shopping Companion",labelColor: whiteColor,),
                     SizedBox(height: 80),
                     customTextField(
                       userFieldController: userNameController,
