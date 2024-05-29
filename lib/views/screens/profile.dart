@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        //backgroundColor: orangeColor,
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Padding(

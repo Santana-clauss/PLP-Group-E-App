@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopeasy/config/constants.dart';
+
 import 'package:shopeasy/views/cartprovider.dart';
-import 'package:shopeasy/views/screens/checkout.dart'; // Import your checkout screen
+import 'package:shopeasy/views/screens/checkout.dart'; 
 
 class CartPage extends StatelessWidget {
   @override

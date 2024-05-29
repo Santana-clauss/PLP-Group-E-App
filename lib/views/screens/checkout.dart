@@ -114,7 +114,7 @@ class CheckoutScreen extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // Add functionality to proceed with payment
+                  
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
@@ -126,7 +126,7 @@ class CheckoutScreen extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).pop();
                             Navigator.of(context)
-                                .pop(); // Close both dialogs and return to the cart page
+                                .pop(); 
                           },
                           child: Text('OK'),
                         ),

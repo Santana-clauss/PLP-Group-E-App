@@ -12,6 +12,7 @@ import 'package:shopeasy/views/cartprovider.dart';
 import 'package:shopeasy/views/screens/cartpage.dart';
 import 'package:shopeasy/views/screens/feedback.dart';
 import 'package:shopeasy/views/screens/profile.dart';
+import 'package:shopeasy/views/screens/settings.dart';
 
 class DashboardPage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
@@ -28,6 +29,7 @@ class DashboardPage extends StatelessWidget {
           case 2:
             return ProfilePage();
           case 3:
+            return SettingsPage();
           default:
             return Container();
         }
@@ -56,15 +58,21 @@ class DashboardPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customText(label: "Hello\n Santana"),
+                    customText(label: "Hello\n Santana",),
                     Row(
                       children: [
                         
                         IconButton(
-                          icon: Icon(Icons.feedback,
-                              color: whiteColor),
+                          icon: Icon(Icons.feedback, color: blackColor
+                              ),
                           onPressed: () {
                             Get.to(FeedbackPage());
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.settings, color: blackColor),
+                          onPressed: () {
+                            Get.to(SettingsPage());
                           },
                         ),
                       ],

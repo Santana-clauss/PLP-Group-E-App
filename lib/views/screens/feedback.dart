@@ -6,7 +6,8 @@ class FeedbackPage extends StatelessWidget {
     // Create a Scaffold as the base structure
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Feedback Matters'), // Set the app bar title
+        title: Center(child: Text('Your Feedback Matters')),
+        backgroundColor: Colors.green, // Set the app bar title
       ),
       body: SingleChildScrollView(
         // Allow scrolling for long feedback
