@@ -5,17 +5,45 @@ class CartProvider with ChangeNotifier {
 
   List<Map<String, dynamic>> get cartItems => _cartItems;
 
-  double get totalPrice {
-    return _cartItems.fold(0.0, (sum, item) => sum + item['price']);
-  }
+  double get totalPrice => _cartItems.fold(
+      0.0, (total, item) => total + item['price'] * item['quantity']);
 
   void addItem(Map<String, dynamic> item) {
-    _cartItems.add(item);
+    int index =
+        _cartItems.indexWhere((cartItem) => cartItem['name'] == item['name']);
+    if (index != -1) {
+      _cartItems[index]['quantity'] += 1;
+    } else {
+      item['quantity'] = 1;
+      _cartItems.add(item);
+    }
     notifyListeners();
   }
 
   void removeItem(Map<String, dynamic> item) {
-    _cartItems.remove(item);
+    int index =
+        _cartItems.indexWhere((cartItem) => cartItem['name'] == item['name']);
+    if (index != -1) {
+      _cartItems[index]['quantity'] -= 1;
+      if (_cartItems[index]['quantity'] == 0) {
+        _cartItems.removeAt(index);
+      }
+    }
     notifyListeners();
+  }
+
+  void removeItemCompletely(Map<String, dynamic> item) {
+    _cartItems.removeWhere((cartItem) => cartItem['name'] == item['name']);
+    notifyListeners();
+  }
+
+  void clearCart() {
+    _cartItems.clear();
+    notifyListeners();
+  }
+
+  List<Map<String, dynamic>> get trendingItems {
+    _cartItems.sort((a, b) => b['quantity'].compareTo(a['quantity']));
+    return _cartItems.take(2).toList();
   }
 }

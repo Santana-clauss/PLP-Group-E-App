@@ -5,10 +5,19 @@ import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shopeasy/config/constants.dart';
 import 'package:shopeasy/controllers/controllers.dart';
+import 'package:shopeasy/views/screens/cart.dart';
+import 'package:shopeasy/views/screens/dashboard.dart';
+import 'package:shopeasy/views/screens/profile.dart';
 
 class BottomNavBar extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
-
+   final List<Widget> screens = [
+    DashboardPage(),
+    CartPage(),
+    
+    ProfilePage(),
+    
+  ];
   @override
   Widget build(BuildContext context) {
     return GNav(
@@ -22,11 +31,7 @@ class BottomNavBar extends StatelessWidget {
           iconColor: blackColor,
           text: 'Home',
         ),
-        // GButton(
-        //   icon: Icons.category,
-        //   iconColor: blackColor,
-        //   text: 'Accounts',
-        // ),
+        
         GButton(
           icon: Icons.shopping_basket_rounded,
           iconColor: blackColor,
@@ -45,3 +50,5 @@ class BottomNavBar extends StatelessWidget {
     );
   }
 }
+
+

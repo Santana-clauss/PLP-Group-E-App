@@ -44,14 +44,14 @@ class CategoryItemsPage extends StatelessWidget {
       },
     ],
     'Clothing': [
-     {
+      {
         'image': '/images/polo.jpg',
         'brand': 'Brand B',
         'name': 'Polo-neck',
         'price': 49.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      }, 
+      },
       {
         'image': '/images/cargopant.jpg',
         'brand': 'Brand B',
@@ -59,7 +59,7 @@ class CategoryItemsPage extends StatelessWidget {
         'price': 49.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      }, 
+      },
       {
         'image': '/images/green-tank.jpg',
         'brand': 'Brand B',
@@ -67,7 +67,7 @@ class CategoryItemsPage extends StatelessWidget {
         'price': 49.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      }, 
+      },
       {
         'image': '/images/top-shirt.jpg',
         'brand': 'Brand B',
@@ -75,7 +75,7 @@ class CategoryItemsPage extends StatelessWidget {
         'price': 49.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      }, 
+      },
       {
         'image': '/images/pink-hoodie.jpg',
         'brand': 'Brand B',
@@ -83,16 +83,15 @@ class CategoryItemsPage extends StatelessWidget {
         'price': 49.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      }, 
+      },
       {
         'image': '/images/oversized.jpg',
         'brand': 'Brand B',
-        'name': 'Oversized hodie',
+        'name': 'Oversized hoodie',
         'price': 4.0,
         'oldPrice': 69.0,
         'rating': 4.0
-      }, 
-
+      },
     ],
   };
 
@@ -102,7 +101,12 @@ class CategoryItemsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('$category Items'),
+        title: Text(
+          '$category Items',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(10),
@@ -115,18 +119,25 @@ class CategoryItemsPage extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
-          return FashionItemCard(
-            item: item,
-            onAddToCart: () {
-              Provider.of<CartProvider>(context, listen: false).addItem(item);
-              // Show a snackbar to indicate successful addition to cart
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Item added to cart successfully'),
-                  duration: Duration(seconds: 2), // Adjust duration as needed
-                ),
-              );
-            },
+          return Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: FashionItemCard(
+              item: item,
+              onAddToCart: () {
+                Provider.of<CartProvider>(context, listen: false).addItem(item);
+                // Show a snackbar to indicate successful addition to cart
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Item added to cart successfully'),
+                    duration: Duration(seconds: 2), // Adjust duration as needed
+                    backgroundColor: Colors.green,
+                  ),
+                );
+              },
+            ),
           );
         },
       ),

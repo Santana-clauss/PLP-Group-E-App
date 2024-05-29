@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopeasy/config/constants.dart';
 import 'package:shopeasy/views/cartprovider.dart';
 import 'package:shopeasy/views/screens/checkout.dart'; // Import your checkout screen
 
@@ -11,6 +12,8 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart'),
+        backgroundColor: Colors.green,
+        automaticallyImplyLeading: true,
       ),
       body: Column(
         children: [
@@ -19,6 +22,9 @@ class CartPage extends StatelessWidget {
               itemCount: cart.cartItems.length,
               itemBuilder: (context, index) {
                 final item = cart.cartItems[index];
+                final quantity =
+                    item['quantity'] ?? 1; // Default quantity to 1 if null
+
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -56,8 +62,14 @@ class CartPage extends StatelessWidget {
                             SizedBox(height: 5),
                             Row(
                               children: [
+                                IconButton(
+                                  icon: Icon(Icons.remove),
+                                  onPressed: () {
+                                    cart.removeItem(item);
+                                  },
+                                ),
                                 Text(
-                                  '${item['quantity']}',
+                                  '$quantity',
                                   style: TextStyle(fontSize: 16),
                                 ),
                                 IconButton(
@@ -70,7 +82,7 @@ class CartPage extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(Icons.delete),
                                   onPressed: () {
-                                    cart.removeItem(item);
+                                    cart.removeItemCompletely(item);
                                   },
                                 ),
                               ],
@@ -95,7 +107,6 @@ class CartPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to checkout screen with cart items
                     if (cart.cartItems.isNotEmpty) {
                       Navigator.push(
                         context,
@@ -107,6 +118,9 @@ class CartPage extends StatelessWidget {
                     }
                   },
                   child: Text('Checkout'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Change button color to green
+                  ),
                 ),
               ],
             ),

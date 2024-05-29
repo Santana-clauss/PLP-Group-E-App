@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        backgroundColor: orangeColor,
+        //backgroundColor: orangeColor,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -127,17 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Container(
-                  
-                  child: CustomDetails(
-                    imageUrl: "/images/to-do-list.png",
-                    tileTitle: "My Tasks",
-                    //subTileTitle: "Manage your tasks",
-                  ),
-                ),
-              ),
+              
               SizedBox(
                 height: 25,
               ),

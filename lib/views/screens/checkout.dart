@@ -7,8 +7,11 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double totalPrice = cartItems.fold(
-        0, (sum, item) => sum + (item['price'] * item['quantity']));
+    double totalPrice = cartItems.fold(0.0, (sum, item) {
+      final price = item['price'] ?? 0.0;
+      final quantity = item['quantity'] ?? 1;
+      return sum + (price * quantity);
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -31,6 +34,9 @@ class CheckoutScreen extends StatelessWidget {
                 itemCount: cartItems.length,
                 itemBuilder: (context, index) {
                   final item = cartItems[index];
+                  final quantity =
+                      item['quantity'] ?? 1; // Default quantity to 1 if null
+
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Row(
@@ -66,7 +72,7 @@ class CheckoutScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'Quantity: ${item['quantity']}',
+                                'Quantity: $quantity',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.grey[700],
