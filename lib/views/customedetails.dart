@@ -4,12 +4,10 @@ import 'package:shopeasy/config/constants.dart';
 class CustomDetails extends StatelessWidget {
   final String imageUrl;
   final String tileTitle;
-  
 
   const CustomDetails({
     required this.imageUrl,
     required this.tileTitle,
-    
     Key? key,
   }) : super(key: key);
 
@@ -17,32 +15,32 @@ class CustomDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: greenColor,// Background color of the container
+        color: greenColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.all(10), // Padding for the content
+      padding: EdgeInsets.all(10),
       child: Column(
         children: [
           Container(
-            height: 90,
-            width: 90,
+            height: 120, // Adjust height here
+            width: 120, // Adjust width here
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(imageUrl),
                 fit: BoxFit.cover,
               ),
-              
+              borderRadius: BorderRadius.circular(10),
             ),
-           // child: Image.asset(imageUrl),
           ),
-          //SizedBox(width: 10),
-          // Text
+          SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 tileTitle,
-                style: TextStyle(fontWeight: FontWeight.bold,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(height: 5),
               Icon(Icons.shopping_basket_rounded),

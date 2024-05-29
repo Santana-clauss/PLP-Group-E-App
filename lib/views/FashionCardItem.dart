@@ -32,7 +32,11 @@ class FashionItemCard extends StatelessWidget {
                 Text(item['name'],
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 Text(item['brand']),
-                Text('\$${item['price']}'),
+                Row(
+                  children: [
+                    Text('\$${item['price']}'),
+                  ],
+                ),
                 Text('Rating: ${item['rating']}'),
                 ElevatedButton(
                   onPressed: onAddToCart,

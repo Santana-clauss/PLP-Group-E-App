@@ -58,13 +58,13 @@ class DashboardPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customText(label: "Hello\n Santana",),
+                    customText(
+                      label: "Hello\n Santana",
+                    ),
                     Row(
                       children: [
-                        
                         IconButton(
-                          icon: Icon(Icons.feedback, color: blackColor
-                              ),
+                          icon: Icon(Icons.feedback, color: blackColor),
                           onPressed: () {
                             Get.to(FeedbackPage());
                           },
@@ -220,17 +220,16 @@ class DashboardPage extends StatelessWidget {
 
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Wrap(
+                            spacing: 20.0, // horizontal spacing between items
+                            runSpacing: 20.0, // vertical spacing between rows
                             children: items.map((item) {
-                              return Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0),
-                                  child: CustomDetails(
-                                    imageUrl: item['image'],
-                                    tileTitle: item['name'],
-                                  ),
+                              return SizedBox(
+                                width:
+                                    MediaQuery.of(context).size.width / 2 - 30,
+                                child: CustomDetails(
+                                  imageUrl: item['image'],
+                                  tileTitle: item['name'],
                                 ),
                               );
                             }).toList(),
