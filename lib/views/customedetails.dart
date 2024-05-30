@@ -22,8 +22,8 @@ class CustomDetails extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 120, // Adjust height here
-            width: 120, // Adjust width here
+            height: 150, // Adjust height here
+            width: 150, // Adjust width here
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(imageUrl),

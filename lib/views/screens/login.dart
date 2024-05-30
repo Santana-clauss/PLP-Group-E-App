@@ -39,22 +39,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     customText(label: "ShopEasy",labelColor: whiteColor,fontSize: 32,),
-                    customText(label: "Your Ultimate Shopping Companion",labelColor: whiteColor,),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 32),
+                      child: customText(label: "Your Ultimate Shopping Companion",labelColor: whiteColor,),
+                    ),
                     SizedBox(height: 80),
-                    customTextField(
-                      userFieldController: userNameController,
-                      hint: "Username",
-                      icon: Icons.person,
-                      hideText: true,
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: customTextField(
+                        userFieldController: userNameController,
+                        hint: "Username",
+                        icon: Icons.person,
+                        hideText: true,
+                      ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    customTextField(
-                      userFieldController: passwordController,
-                      hint: "Password",
-                      icon: Icons.lock,
-                      hideText: true,
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: customTextField(
+                        userFieldController: passwordController,
+                        hint: "Password",
+                        icon: Icons.lock,
+                        hideText: true,
+                      ),
                     ),
                     SizedBox(height: 16.0),
                     ElevatedButton(

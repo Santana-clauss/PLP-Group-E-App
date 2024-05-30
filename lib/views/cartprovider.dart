@@ -43,7 +43,7 @@ class CartProvider with ChangeNotifier {
   }
 
   List<Map<String, dynamic>> get trendingItems {
-    _cartItems.sort((a, b) => b['quantity'].compareTo(a['quantity']));
-    return _cartItems.take(2).toList();
+    return _cartItems.where((item) => item['quantity'] >= 4).toList()
+      ..sort((a, b) => b['quantity'].compareTo(a['quantity']));
   }
 }

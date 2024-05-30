@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -40,8 +42,7 @@ class DashboardPage extends StatelessWidget {
 
   Widget _buildHomePage(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
-    final trendingItems = cart.cartItems
-      ..sort((a, b) => b['quantity'].compareTo(a['quantity']));
+    final trendingItems = cart.trendingItems;
 
     return SingleChildScrollView(
       child: Column(
@@ -207,7 +208,6 @@ class DashboardPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
-                // Grid of CustomDetails widgets
                 if (trendingItems.isNotEmpty)
                   Column(
                     children: List.generate(
@@ -221,8 +221,8 @@ class DashboardPage extends StatelessWidget {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 20.0),
                           child: Wrap(
-                            spacing: 20.0, // horizontal spacing between items
-                            runSpacing: 20.0, // vertical spacing between rows
+                            spacing: 20.0,
+                            runSpacing: 20.0,
                             children: items.map((item) {
                               return SizedBox(
                                 width:

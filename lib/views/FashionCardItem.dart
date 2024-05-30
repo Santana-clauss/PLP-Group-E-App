@@ -9,6 +9,7 @@ class FashionItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shadowColor: Colors.green.withOpacity(0.1),
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Column(
@@ -16,11 +17,13 @@ class FashionItemCard extends StatelessWidget {
         children: [
           Expanded(
             child: ClipRRect(
+              
               borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
               child: Image.asset(
                 item['image'],
                 fit: BoxFit.cover,
                 width: double.infinity,
+                
               ),
             ),
           ),
@@ -40,7 +43,12 @@ class FashionItemCard extends StatelessWidget {
                 Text('Rating: ${item['rating']}'),
                 ElevatedButton(
                   onPressed: onAddToCart,
-                  child: Text('Add to Cart'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8))),
+                  child: Center(child: Text('Add to Cart')),
                 ),
               ],
             ),

@@ -42,6 +42,22 @@ class CategoryItemsPage extends StatelessWidget {
         'oldPrice': 250.0,
         'rating': 5.0,
       },
+      {
+        'image': '/images/Bluetooth.jpg',
+        'brand': 'Oraimo',
+        'name': 'Portable Speaker ',
+        'price': 300.0,
+        'oldPrice': 250.0,
+        'rating': 4.0,
+      },
+      {
+        'image': '/images/PhoneStand.jpg',
+        'brand': 'Oraimo',
+        'name': 'All-in-One Stand ',
+        'price': 100.0,
+        'oldPrice': 250.0,
+        'rating': 4.0,
+      },
     ],
     'Clothing': [
       {

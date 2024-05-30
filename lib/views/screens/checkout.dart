@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -15,7 +17,8 @@ class CheckoutScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Checkout'),
+        title: Center(child: Text('Checkout')),
+        backgroundColor: Colors.green,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -106,13 +109,26 @@ class CheckoutScreen extends StatelessWidget {
             SizedBox(height: 10),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'Enter your location',
-                border: OutlineInputBorder(),
+                labelText: 'Enter your location',
+                fillColor: Colors.white,
+                filled: true,
+                 border: OutlineInputBorder(
+                  
+                   borderRadius: const BorderRadius.all(Radius.circular(10)
+                     )
+                ),
+               
+                
               ),
             ),
             SizedBox(height: 20),
             Center(
               child: ElevatedButton(
+
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                  
+                ),
                 onPressed: () {
                   
                   showDialog(

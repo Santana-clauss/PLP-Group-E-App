@@ -80,7 +80,7 @@ class CartPage extends StatelessWidget {
                                 ),
                                 Spacer(),
                                 IconButton(
-                                  icon: Icon(Icons.delete),
+                                  icon: Icon(Icons.delete,color: Colors.red,),
                                   onPressed: () {
                                     cart.removeItemCompletely(item);
                                   },
