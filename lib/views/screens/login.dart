@@ -34,16 +34,21 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.white
                   .withOpacity(0.15), // Adjust opacity value as needed
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(12.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    customText(label: "ShopEasy",labelColor: whiteColor,fontSize: 32,),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 32),
-                      child: customText(label: "Your Ultimate Shopping Companion",labelColor: whiteColor,),
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Center(
+                        child: Image.asset(
+                          "images/logo.png",
+                          height: 300,
+                          width: 300,
+                        ),
+                      ),
                     ),
-                    SizedBox(height: 80),
+                    SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: customTextField(
@@ -78,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.only(
                             left: 24, right: 24, bottom: 13, top: 13),
                         child: GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             gotohome();
                           },
                           child: customText(
@@ -108,10 +113,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-  void gotohome(){
-   Navigator.pushNamed(context, "/home");
-   
+
+  void gotohome() {
+    Navigator.pushNamed(context, "/home");
   }
 }
-
-
