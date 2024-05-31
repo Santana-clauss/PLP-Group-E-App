@@ -28,6 +28,10 @@ class FeedbackPage extends StatelessWidget {
               SizedBox(height: 20.0),
               // Button to submit feedback
               ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.green),
+                ),
                 onPressed: () {
                   // Handle form submission (explained later)
                   print('Feedback submitted!');
@@ -72,5 +76,3 @@ class _RatingBarState extends State<RatingBar> {
     );
   }
 }
-
-
