@@ -9,36 +9,38 @@ class FeedbackPage extends StatelessWidget {
         title: Center(child: Text('Your Feedback Matters')),
         backgroundColor: Colors.green, // Set the app bar title
       ),
-      body: SingleChildScrollView(
-        // Allow scrolling for long feedback
-        child: Padding(
-          padding: const EdgeInsets.all(20.0), // Add padding around content
-          child: Column(
-            children: [
-              // Text field for feedback
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Tell us what you think...', // Set label text
+      body: SliverSafeArea(
+        child: SingleChildScrollView(
+          // Allow scrolling for long feedback
+          child: Padding(
+            padding: const EdgeInsets.all(20.0), // Add padding around content
+            child: Column(
+              children: [
+                // Text field for feedback
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Tell us what you think...', // Set label text
+                  ),
+                  maxLines: 5, // Allow multiple lines of input
                 ),
-                maxLines: 5, // Allow multiple lines of input
-              ),
-              SizedBox(height: 20.0), // Add spacing between elements
-              // Rating bar for user satisfaction
-              RatingBar(), // Call RatingBar widget (explained later)
-              SizedBox(height: 20.0),
-              // Button to submit feedback
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.green),
+                SizedBox(height: 20.0), // Add spacing between elements
+                // Rating bar for user satisfaction
+                RatingBar(), // Call RatingBar widget (explained later)
+                SizedBox(height: 20.0),
+                // Button to submit feedback
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green),
+                  ),
+                  onPressed: () {
+                    // Handle form submission (explained later)
+                    print('Feedback submitted!');
+                  },
+                  child: Text('Submit Feedback'),
                 ),
-                onPressed: () {
-                  // Handle form submission (explained later)
-                  print('Feedback submitted!');
-                },
-                child: Text('Submit Feedback'),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

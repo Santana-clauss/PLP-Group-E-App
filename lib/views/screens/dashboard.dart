@@ -22,20 +22,22 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() {
-        switch (homeController.selectedPage.value) {
-          case 0:
-            return _buildHomePage(context);
-          case 1:
-            return CartPage();
-          case 2:
-            return ProfilePage();
-          case 3:
-            return SettingsPage();
-          default:
-            return Container();
-        }
-      }),
+      body: SafeArea(
+        child: Obx(() {
+          switch (homeController.selectedPage.value) {
+            case 0:
+              return _buildHomePage(context);
+            case 1:
+              return CartPage();
+            case 2:
+              return ProfilePage();
+            case 3:
+              return SettingsPage();
+            default:
+              return Container();
+          }
+        }),
+      ),
       bottomNavigationBar: BottomNavBar(),
     );
   }
