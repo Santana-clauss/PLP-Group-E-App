@@ -15,6 +15,7 @@ import 'package:shopeasy/views/screens/cartpage.dart';
 import 'package:shopeasy/views/screens/feedback.dart';
 import 'package:shopeasy/views/screens/profile.dart';
 import 'package:shopeasy/views/screens/settings.dart';
+import 'package:shopeasy/views/screens/wishlist.dart';
 
 class DashboardPage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
@@ -29,10 +30,14 @@ class DashboardPage extends StatelessWidget {
               return _buildHomePage(context);
             case 1:
               return CartPage();
+            
             case 2:
-              return ProfilePage();
+              return WishlistScreen();
             case 3:
+              return ProfilePage();
+            case 4:
               return SettingsPage();
+            
             default:
               return Container();
           }

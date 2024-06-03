@@ -9,7 +9,7 @@ class FeedbackPage extends StatelessWidget {
         title: Center(child: Text('Your Feedback Matters')),
         backgroundColor: Colors.green, // Set the app bar title
       ),
-      body: SliverSafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           // Allow scrolling for long feedback
           child: Padding(
